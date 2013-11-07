@@ -21,3 +21,13 @@ Nous devons également indiqué à express que nous allons utiliser le moteur de
 ### Utilisation de MongoDB
 #### mongojs
 mongojs est un module Node.js facilitant l'utilisation de l'api mongoDB de Node.js. Son utilisation est très simple, voir le github de [mongojs](https://github.com/mafintosh/mongojs)
+### Fonctionnement
+#### Routing
+Nous déclarons les points d'entrée suivants :
+- GET / : Le premier point d'entrée retourne un rendu de la page de login.
+- POST /user/login : Le deuxième va rechercher en base un utilisateur ayant le login indiqué (j'ai défini le login comme étant l'id de la collection users). Si il trouve un utilisateur, il compare le mot de passe saisi et le mot de passe en base. Affiche un message d'erreur si l'utilisateur n'existe pas ou si le mot de passe est incorrect, et retourne le rendu de la page welcome.jade si tout est bon.
+- POST /user/register : Le troisième point d'entrée va insérer dans la base le login et mot de passe saisi.
+
+## Attention
+Cet exemple est très simplifié, il ne comprends pas le contrôle des champs ni l'encryptage du mot de passe (ne jamais enregistrer un mot de passe en clair!!!)...
+
